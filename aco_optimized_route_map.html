@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_0fec81f02df4d35de39c5d4c59cd627c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_0fec81f02df4d35de39c5d4c59cd627c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_0fec81f02df4d35de39c5d4c59cd627c = L.map(
+                "map_0fec81f02df4d35de39c5d4c59cd627c",
+                {
+                    center: [16.5069, 80.6486],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_8ffca1e22c55cc475f2f53bd2c640c37 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8ffca1e22c55cc475f2f53bd2c640c37.addTo(map_0fec81f02df4d35de39c5d4c59cd627c);
+        
+    
+            var circle_marker_6ca7ab59313c07744a917a18c08e54fc = L.circleMarker(
+                [16.5069, 80.6486],
+                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_0fec81f02df4d35de39c5d4c59cd627c);
+        
+    
+            circle_marker_6ca7ab59313c07744a917a18c08e54fc.bindTooltip(
+                `<div>
+                     Vijayawada Bus Station
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_77a87ec4518bcac5117131a83a014aeb = L.circleMarker(
+                [16.43, 80.55],
+                {"bubblingMouseEvents": true, "color": "white", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_0fec81f02df4d35de39c5d4c59cd627c);
+        
+    
+            circle_marker_77a87ec4518bcac5117131a83a014aeb.bindTooltip(
+                `<div>
+                     Mangalagiri Temple (10km SE)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1e62b8f8589883b8a6c3f6af6e91a09c = L.marker(
+                [16.5069, 80.6486],
+                {
+}
+            ).addTo(map_0fec81f02df4d35de39c5d4c59cd627c);
+        
+    
+            var div_icon_166ecb5b7073f4d54dacbe4382290e24 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12pt; color: white; background-color: black; border-radius: 50%; width: 20px; height: 20px; text-align: center;\"\u003e0\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+            marker_1e62b8f8589883b8a6c3f6af6e91a09c.setIcon(div_icon_166ecb5b7073f4d54dacbe4382290e24);
+        
+    
+            marker_1e62b8f8589883b8a6c3f6af6e91a09c.bindTooltip(
+                `<div>
+                     Stop 0: Vijayawada Bus Station
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_eab69b5b8f39c54c676beed0eb67cece = L.marker(
+                [16.43, 80.55],
+                {
+}
+            ).addTo(map_0fec81f02df4d35de39c5d4c59cd627c);
+        
+    
+            var div_icon_fa6077c13c593aed8bfe7d742509dbe6 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size: 12pt; color: white; background-color: black; border-radius: 50%; width: 20px; height: 20px; text-align: center;\"\u003e1\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+            marker_eab69b5b8f39c54c676beed0eb67cece.setIcon(div_icon_fa6077c13c593aed8bfe7d742509dbe6);
+        
+    
+            marker_eab69b5b8f39c54c676beed0eb67cece.bindTooltip(
+                `<div>
+                     Stop 1: Mangalagiri Temple (10km SE)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1475ed0f5e2c5a0d6140cbd8360095cd = L.polyline(
+                [[16.5066952, 80.649318], [16.5059769, 80.6480896], [16.5059447, 80.6480771], [16.5045896, 80.6477627], [16.5045093, 80.6479112], [16.5044566, 80.6480185], [16.5043608, 80.6479983], [16.5043387, 80.64796], [16.5031759, 80.6483885], [16.5023624, 80.648604], [16.5020061, 80.6486884], [16.5014839, 80.6486234], [16.501064, 80.6485754], [16.5005852, 80.6484425], [16.4999477, 80.6482953], [16.4993836, 80.6497794], [16.4992489, 80.6502042], [16.4991381, 80.6505323], [16.4990077, 80.6509495], [16.4989547, 80.651078], [16.498876, 80.6512687], [16.4987297, 80.6517134], [16.4985155, 80.6523228], [16.4983525, 80.6527626], [16.4982016, 80.6532114], [16.4979624, 80.653899], [16.497972, 80.6539435], [16.4979139, 80.6540582], [16.4979024, 80.6540648], [16.4977856, 80.6540574], [16.4977448, 80.6538751], [16.497407, 80.6535322], [16.4967498, 80.6526544], [16.4955379, 80.650561], [16.4942577, 80.6490948], [16.4939271, 80.6469217], [16.496654, 80.642442], [16.4996899, 80.6373906], [16.500124, 80.636642], [16.4994555, 80.63166], [16.4846978, 80.6202107], [16.4667835, 80.6138388], [16.4597212, 80.6095516], [16.4562375, 80.6067519], [16.4522911, 80.6021351], [16.4429564, 80.5917469], [16.4418865, 80.5905699], [16.4414926, 80.5903904], [16.4406782, 80.589427], [16.4372114, 80.5863296], [16.4346546, 80.5843199], [16.4341645, 80.5839413], [16.4306231, 80.5812126], [16.4284892, 80.5793278], [16.4275171, 80.5784764], [16.4266573, 80.5777191], [16.4263222, 80.5777103], [16.4238922, 80.5815595], [16.4234259, 80.5821824], [16.4234535, 80.5821402], [16.4281477, 80.5748444], [16.4283218, 80.574557], [16.4287064, 80.5739966], [16.4288465, 80.5737714], [16.4288662, 80.5737393], [16.4290663, 80.5733352], [16.4298238, 80.571816], [16.429839, 80.5717056], [16.4297668, 80.5716075], [16.4296862, 80.5715073], [16.4294547, 80.5711931], [16.4291264, 80.5708557], [16.4287287, 80.570467], [16.4287129, 80.570234], [16.4287235, 80.5699763], [16.4287493, 80.5697082], [16.4288061, 80.5694112], [16.428888, 80.5691356], [16.428951, 80.568623], [16.4288687, 80.5684801], [16.4286249, 80.5680833], [16.4286511, 80.5678495], [16.4287631, 80.5672654], [16.428875, 80.5666008], [16.4289672, 80.5661039], [16.4289796, 80.5660097], [16.429518, 80.5660359], [16.4303943, 80.5660563], [16.4304873, 80.5660585], [16.4305213, 80.5657172], [16.4305694, 80.5652654], [16.4306371, 80.5647765], [16.4308182, 80.5635435], [16.4309046, 80.5629758], [16.4309247, 80.5628187], [16.4309799, 80.5623883], [16.4310161, 80.5619696], [16.4310587, 80.5616867], [16.4311577, 80.5611134], [16.4311857, 80.5609391], [16.4312495, 80.5605521], [16.4312949, 80.5602165], [16.4315248, 80.5581251], [16.4316303, 80.5553804], [16.431631, 80.5553128], [16.4314891, 80.5521534], [16.4314433, 80.5514789], [16.4313955, 80.550888], [16.4313913, 80.550815], [16.4291238, 80.5497121], [16.4292071, 80.5493887], [16.429764, 80.5495566]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_0fec81f02df4d35de39c5d4c59cd627c);
+        
+    
+            var marker_cd977e922361a4b129f1a6173d68d325 = L.marker(
+                [16.4263222, 80.5777103],
+                {
+}
+            ).addTo(map_0fec81f02df4d35de39c5d4c59cd627c);
+        
+    
+            var div_icon_738bb67bb9ab80d13ab89a77b4075eab = L.divIcon({
+  "html": "",
+  "className": "empty",
+});
+            marker_cd977e922361a4b129f1a6173d68d325.setIcon(div_icon_738bb67bb9ab80d13ab89a77b4075eab);
+        
+    
+        var popup_1fe88e37b447de1ab4d80f115ea8be87 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6a25d24ac0ba58b5f2e97cf2cc380fc6 = $(`<div id="html_6a25d24ac0ba58b5f2e97cf2cc380fc6" style="width: 100.0%; height: 100.0%;">Segment 1: Vijayawada Bus Station → Mangalagiri Temple (10km SE)<br>Distance: 19.34 km<br>Travel time: 22.1 min</div>`)[0];
+                popup_1fe88e37b447de1ab4d80f115ea8be87.setContent(html_6a25d24ac0ba58b5f2e97cf2cc380fc6);
+            
+        
+
+        marker_cd977e922361a4b129f1a6173d68d325.bindPopup(popup_1fe88e37b447de1ab4d80f115ea8be87)
+        ;
+
+        
+    
+</script>
+</html>
