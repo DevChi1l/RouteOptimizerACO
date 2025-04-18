@@ -69,12 +69,10 @@ def main():
         "Latitude": [
             16.5069,  # Vijayawada Central
             16.4300   # Southeast
-            
         ],
         "Longitude": [
             80.6486,  # Central
             80.5500   # SE corridor
-            
         ]
     }
 
@@ -92,9 +90,10 @@ def main():
     optimizer.find_nearest_nodes()
     # Compute distance matrix
     optimizer.compute_distance_matrix()
+    
     # Run standard ACO optimization first
     print("\nRunning standard route optimization...")
-    route_nodes, route_indices, route_locations, best_distance = optimizer.optimize_route(
+    standard_route_nodes, standard_route_indices, standard_route_locations, standard_distance = optimizer.optimize_route(
         n_ants=10,
         n_iterations=50,
         alpha=1.0,
@@ -103,21 +102,22 @@ def main():
         q=50,
         strategy='elitist'
     )
-    if route_nodes:
+    
+    if standard_route_nodes:
         # Create detailed route map
-        route_map, all_route_coords, segment_transitions, route_paths = optimizer.create_detailed_route_map(
-            route_nodes, route_indices, route_locations
+        standard_map, all_route_coords, segment_transitions, route_paths = optimizer.create_detailed_route_map(
+            standard_route_nodes, standard_route_indices, standard_route_locations
         )
         
-        # Create animated route
-        if hasattr(optimizer, 'create_animated_route'):
-            optimizer.create_animated_route(all_route_coords, segment_transitions, route_locations, route_paths)
-        
-        print(f"\nStandard route optimization complete. Total travel time: {best_distance:.1f} seconds ({best_distance/60:.1f} minutes)")
+        print(f"\nStandard route optimization complete. Total travel time: {standard_distance:.1f} seconds ({standard_distance/60:.1f} minutes)")
     
     # Now run traffic-based optimization
     print("\nRunning traffic-based route optimization...")
-    traffic_map, traffic_distance = optimizer.optimize_with_traffic(
+    optimizer.incorporate_traffic_data()
+    original_matrix = optimizer.distance_matrix.copy()
+    optimizer.distance_matrix = optimizer.traffic_distance_matrix
+    
+    traffic_route_nodes, traffic_route_indices, traffic_route_locations, traffic_distance = optimizer.optimize_route(
         n_ants=20,
         n_iterations=100,
         alpha=1.0,
@@ -127,7 +127,17 @@ def main():
         strategy='elitist'
     )
     
-    if traffic_map:
+    # Restore original distance matrix
+    optimizer.distance_matrix = original_matrix
+    
+    if traffic_route_nodes:
+        # Create traffic route map
+        optimizer.add_traffic_visualization = True
+        traffic_map, traffic_all_route_coords, traffic_segment_transitions, traffic_route_paths = optimizer.create_detailed_route_map(
+            traffic_route_nodes, traffic_route_indices, traffic_route_locations
+        )
+        optimizer.add_traffic_visualization = False
+        
         print("\nTraffic-based optimization complete!")
         print("\nGenerated files:")
         print("1. initial_map.html - Initial map with all locations")
@@ -140,25 +150,24 @@ def main():
         webbrowser.open('route_comparison.html')
         
         # Display the time difference between standard and traffic-aware routes
-        time_diff = abs(traffic_distance - best_distance)
-        if traffic_distance < best_distance:
+        time_diff = abs(traffic_distance - standard_distance)
+        if traffic_distance < standard_distance:
             print(f"\nThe traffic-optimized route saves {time_diff:.1f} seconds ({time_diff/60:.1f} minutes)")
         else:
             print(f"\nThe standard route is {time_diff:.1f} seconds ({time_diff/60:.1f} minutes) faster than the traffic-aware route")
         
         # Calculate and display statistics
-        optimizer.calculate_route_statistics(route_nodes, traffic_map)
-        
+        optimizer.calculate_route_statistics(standard_route_nodes, traffic_route_nodes)
+
         # Save the optimized routes to file
         optimizer.save_routes_to_file(
-            standard_route=route_nodes, 
-            traffic_route=traffic_map,
-            standard_distance=best_distance,
+            standard_route=standard_route_nodes, 
+            traffic_route=traffic_route_nodes,
+            standard_distance=standard_distance,
             traffic_distance=traffic_distance
         )
     
     print("\nOptimization process complete!")
 
-# Run the main function if the script is executed directly
 if __name__ == "__main__":
     main()
